@@ -38,31 +38,42 @@ var twoSum = function (nums, target) {
     i++;
   }
 };
-
-console.log("\x1b[36m", "输入:", "[2,7,11,15], 9");
-console.log("\x1b[37m", "输出:", twoSum([2, 7, 11, 15],9));
-console.log(
-  "\x1b[32m",
-  "预期结果:",
-  "\x1b[37m[ \x1b[33m0\x1b[37m, \x1b[33m1 \x1b[37m]"
+var toTest = function (entry, func, expected, isLineFeed) {
+  isLineFeed = typeof isLineFeed === "undefined" ? true : isLineFeed;
+  isLineFeed && console.log("\n");
+  console.log("\x1b[36m", "输入:", entry);
+  console.log("\x1b[37m", "输出:", func());
+  console.log(
+    "\x1b[32m",
+    "预期结果:",
+    "\x1b[37m[ \x1b[33m" +
+      expected[1] +
+      "\x1b[37m, \x1b[33m" +
+      expected[3] +
+      " \x1b[37m]"
+  );
+};
+toTest(
+  "nums = [2,7,11,15], target = 9",
+  function () {
+    return twoSum([2, 7, 11, 15], 9);
+  },
+  "[0,1]",
+  false
 );
 
-console.log("\n");
-
-console.log("\x1b[36m", "输入:", "[3,2,4], 6");
-console.log("\x1b[37m", "输出:", twoSum([3,2,4],6));
-console.log(
-  "\x1b[32m",
-  "预期结果:",
-  "\x1b[37m[ \x1b[33m1\x1b[37m, \x1b[33m2 \x1b[37m]"
+toTest(
+  "nums = [3,2,4], target = 6",
+  function () {
+    return twoSum([3, 2, 4], 6);
+  },
+  "[1,2]"
 );
 
-console.log("\n");
-
-console.log("\x1b[36m", "输入:", "[3,3], 6");
-console.log("\x1b[37m", "输出:", twoSum([3,3],6));
-console.log(
-  "\x1b[32m",
-  "预期结果:",
-  "\x1b[37m[ \x1b[33m0\x1b[37m, \x1b[33m1 \x1b[37m]"
+toTest(
+  "nums = [3,3], target = 6",
+  function () {
+    return twoSum([3, 3], 6);
+  },
+  "[0,1]"
 );
