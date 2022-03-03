@@ -75,17 +75,22 @@ var romanToInt = function (s) {
   }
   return ans;
 };
+/**
+ * @param {string} entry
+ * @param {string} expected
+ * @param {boolean} isLineFeed
+ */
 
 var toTest = function (entry, expected, isLineFeed) {
-  isLineFeed = typeof isLineFeed === 'undefined' ? true : isLineFeed; 
-  (isLineFeed && console.log("\n"));
+  isLineFeed = typeof isLineFeed === "undefined" ? true : isLineFeed;
+  isLineFeed && console.log("\n");
   console.log("\x1b[36m", "输入:", "s = " + entry);
   console.log("\x1b[37m", "输出:", romanToInt(entry));
   console.log("\x1b[32m", "预期结果:", "\x1b[33m" + expected + "\x1b[37m");
 };
 
-toTest('III', '3', false);
-toTest('IV', '4');
-toTest('IX', '9');
-toTest('LVIII', '58');
-toTest('MCMXCIV', '1994');
+toTest("III", "3", false);
+toTest("IV", "4");
+toTest("IX", "9");
+toTest("LVIII", "58");
+toTest("MCMXCIV", "1994");
